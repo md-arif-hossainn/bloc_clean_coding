@@ -2,6 +2,7 @@ import 'package:bloc_clean_coding/config/components/internet_exception_widget.da
 import 'package:bloc_clean_coding/config/components/loading_widget.dart';
 import 'package:bloc_clean_coding/config/components/round_button.dart';
 import 'package:bloc_clean_coding/config/routes/routes_name.dart';
+import 'package:bloc_clean_coding/services/splash/splash_services.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -12,15 +13,26 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  SplashServices splashServices = SplashServices();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    splashServices.isLogin(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Center(
         child: Row(
           children: [
+            const Text('splash screen'),
             InterNetExceptionWidget(onPress: (){}),
             RoundButton(title: "test", onPress: (){}),
-            LoadingWidget()
+            const LoadingWidget()
           ],
         )
 
