@@ -25,14 +25,13 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Center(
-        child: Row(
+    return const Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text('splash screen'),
-            InterNetExceptionWidget(onPress: (){}),
-            RoundButton(title: "test", onPress: (){}),
-            const LoadingWidget()
+            Text('splash screen'),
           ],
         )
 
