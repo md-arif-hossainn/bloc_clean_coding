@@ -31,7 +31,11 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('splash screen'),
+            Text('splash screen',style: TextStyle(
+              color: Colors.blueAccent,
+              fontSize: 26,
+            ),),
+
           ],
         )
 
