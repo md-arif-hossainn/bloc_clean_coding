@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:bloc_clean_coding/repository/auth/login_repository.dart';
 import 'package:equatable/equatable.dart';
 
+import '../../services/session_manager/session_controller.dart';
 import '../../utils/enums.dart';
 
 part 'login_events.dart';
@@ -35,20 +36,20 @@ class LoginBloc extends Bloc<LoginEvents, LoginStates> {
   }
 
   void _loginApi(LoginApi event, Emitter<LoginStates> emit) async {
-    Map<String, String> data = {
-      'email': 'eve.holt@reqres.inb',
-      'password': 'cityslicka',
-    };
     // Map<String, String> data = {
-    //   'email': state.email,
-    //   'password': state.password,
+    //   'email': 'eve.holt@reqres.inb',
+    //   'password': 'cityslicka',
     // };
+    Map<String, String> data = {
+      'email': state.email,
+      'password': state.password,
+    };
 
     emit(state.copyWith(
       postApiStatus: PostApiStatus.loading,
     ));
 
-    await loginRepository.loginApi(data).then((value) {
+    await loginRepository.loginApi(data).then((value) async {
       if (value.error.isNotEmpty) {
         // emit(state.copyWith(
         //     message: value.error.toString(),
@@ -61,6 +62,10 @@ class LoginBloc extends Bloc<LoginEvents, LoginStates> {
           ),
         );
       } else {
+
+        await SessionController().saveUserInPreference(value);
+        await SessionController().getUserFromPreference();
+
         // emit(
         //   state.copyWith(
         //     message: value.token,
