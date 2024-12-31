@@ -25,7 +25,7 @@ class TvShows with _$TvShows {
     @Default('') String permalink,
     @Default('') String endDate,
     @Default('') String network,
-    @Default('') String imageThumbnailPath,
+    @JsonKey(name: 'image_thumbnail_path') @Default('') String imageThumbnailPath,
     @Default('') String status,
   }) = _TvShows; // Constructor for the freezed class
 

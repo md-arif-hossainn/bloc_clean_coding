@@ -31,7 +31,7 @@ _$TvShowsImpl _$$TvShowsImplFromJson(Map<String, dynamic> json) =>
       permalink: json['permalink'] as String? ?? '',
       endDate: json['endDate'] as String? ?? '',
       network: json['network'] as String? ?? '',
-      imageThumbnailPath: json['imageThumbnailPath'] as String? ?? '',
+      imageThumbnailPath: json['image_thumbnail_path'] as String? ?? '',
       status: json['status'] as String? ?? '',
     );
 
@@ -41,6 +41,6 @@ Map<String, dynamic> _$$TvShowsImplToJson(_$TvShowsImpl instance) =>
       'permalink': instance.permalink,
       'endDate': instance.endDate,
       'network': instance.network,
-      'imageThumbnailPath': instance.imageThumbnailPath,
+      'image_thumbnail_path': instance.imageThumbnailPath,
       'status': instance.status,
     };

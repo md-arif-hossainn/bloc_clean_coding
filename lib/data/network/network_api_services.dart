@@ -43,6 +43,7 @@ class NetworkApiService implements BaseApiServices {
     if (kDebugMode) {
       print(url);
       print(data);
+     // printWrapped(data);
     }
 
     dynamic responseJson;

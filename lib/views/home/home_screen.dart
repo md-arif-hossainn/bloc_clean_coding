@@ -21,9 +21,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     moviesBloc = MoviesBloc(moviesRepository: getIt());
+  }
+
+  @override
+  void dispose() {
+    moviesBloc.close();
+    super.dispose();
   }
 
 
@@ -61,13 +66,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   return const Text('No Data Found');
                 }
                 final movieList = state.moviesList.data!;
-
                 return ListView.builder(
                     itemCount: movieList.tvShows.length,
                     itemBuilder: (context, index) {
                       final tvShow = movieList.tvShows[index];
                       return Card(
                         child: ListTile(
+                          leading: Image(image: NetworkImage(tvShow.imageThumbnailPath)),
                           title: Text(tvShow.name.toString()),
                           subtitle: Text(tvShow.network.toString()),
                           trailing: Text(tvShow.status.toString()),
