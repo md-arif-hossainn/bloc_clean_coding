@@ -8,7 +8,7 @@ part of 'movies.dart';
 
 _$MoviesModelImpl _$$MoviesModelImplFromJson(Map<String, dynamic> json) =>
     _$MoviesModelImpl(
-      total: json['total'] as String? ?? '',
+      total: (json['total'] as num?)?.toInt() ?? 0,
       page: (json['page'] as num?)?.toInt() ?? 0,
       pages: (json['pages'] as num?)?.toInt() ?? 0,
       tvShows: (json['tv_shows'] as List<dynamic>?)

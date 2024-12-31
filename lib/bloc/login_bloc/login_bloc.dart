@@ -37,7 +37,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginStates> {
 
   void _loginApi(LoginApi event, Emitter<LoginStates> emit) async {
     // Map<String, String> data = {
-    //   'email': 'eve.holt@reqres.inb',
+    //   'email': 'eve.holt@reqres.in',
     //   'password': 'cityslicka',
     // };
     Map<String, String> data = {
@@ -51,6 +51,7 @@ class LoginBloc extends Bloc<LoginEvents, LoginStates> {
 
     await loginRepository.loginApi(data).then((value) async {
       if (value.error.isNotEmpty) {
+
         // emit(state.copyWith(
         //     message: value.error.toString(),
         //     postApiStatus: PostApiStatus.error));

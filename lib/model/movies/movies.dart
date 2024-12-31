@@ -8,7 +8,7 @@ part 'movies.g.dart';
 class MoviesModel with _$MoviesModel {
 
   factory MoviesModel({
-    @Default('') @JsonKey(name: 'total')String total,
+    @Default(0) @JsonKey(name: 'total')int total,
     @Default(0) int page,
     @Default(0) int pages,
     @Default([]) @JsonKey(name: 'tv_shows') List<TvShows>tvShows}) = _MoviesModel;
